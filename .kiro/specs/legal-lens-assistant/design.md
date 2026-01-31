@@ -382,11 +382,11 @@ Based on the prework analysis, I'll now convert the testable acceptance criteria
 *For any* user deletion request, the system should permanently remove all associated data according to retention policies
 **Validates: Requirements 7.3, 7.4**
 
-### Property 16: User Authentication and Session Management
+### Property 14: User Authentication and Session Management
 *For any* user registration or login, the system should create secure accounts, authenticate credentials, establish sessions, and require re-authentication for expired sessions
 **Validates: Requirements 9.1, 9.2, 9.3, 9.5**
 
-### Property 17: Responsive Interface Adaptation
+### Property 15: Responsive Interface Adaptation
 *For any* device type or screen orientation, the system should adapt the interface layout appropriately for the specific device and orientation
 **Validates: Requirements 10.1, 10.2, 10.3, 10.4**
 
