@@ -10,7 +10,7 @@ LegalLens is an AI-powered legal document analysis tool designed to provide Indi
 - **Document_Analyzer**: Component that processes and extracts text from legal documents
 - **Clause_Interpreter**: Component that provides simplified explanations of legal clauses
 - **Risk_Detector**: Component that identifies potential risks, penalties, and obligations
-- **Language_Processor**: Component that handles multilingual translation and voice processing
+- **Language_Processor**: Component that handles multilingual translation
 - **RAG_Engine**: Retrieval-Augmented Generation system for document-specific responses
 - **User**: Indian citizen using the system to understand legal documents
 - **Legal_Document**: Any contract, agreement, or legal text (rental, employment, loan, government)
@@ -66,7 +66,6 @@ LegalLens is an AI-powered legal document analysis tool designed to provide Indi
 2. WHEN generating clause explanations, THE Language_Processor SHALL provide translations in the user's selected regional language
 3. WHEN displaying risk alerts, THE Language_Processor SHALL present them in the user's preferred language
 4. WHEN translation is requested, THE Language_Processor SHALL maintain the meaning and legal context accurately
-5. WHERE voice input is available, THE Language_Processor SHALL support speech recognition in regional languages
 
 ### Requirement 5: Natural Language Question Answering
 
@@ -104,19 +103,7 @@ LegalLens is an AI-powered legal document analysis tool designed to provide Indi
 4. WHEN storing user data, THE LegalLens_System SHALL implement appropriate data retention policies
 5. WHEN accessing user documents, THE LegalLens_System SHALL require proper authentication and authorization
 
-### Requirement 8: Voice Input and Output Support
-
-**User Story:** As a user who prefers voice interaction, I want to ask questions and receive answers through voice, so that I can interact with the system hands-free.
-
-#### Acceptance Criteria
-
-1. WHERE voice input is enabled, THE Language_Processor SHALL convert speech to text for question processing
-2. WHERE voice output is enabled, THE Language_Processor SHALL convert text responses to natural speech
-3. WHEN using voice input, THE Language_Processor SHALL support multiple Indian regional languages
-4. WHEN generating voice output, THE Language_Processor SHALL use appropriate pronunciation and intonation
-5. WHEN voice processing fails, THE LegalLens_System SHALL gracefully fall back to text-based interaction
-
-### Requirement 9: User Authentication and Session Management
+### Requirement 8: User Authentication and Session Management
 
 **User Story:** As a user, I want to securely access my documents and analysis history, so that I can review previous analyses and maintain continuity across sessions.
 
@@ -128,7 +115,7 @@ LegalLens is an AI-powered legal document analysis tool designed to provide Indi
 4. WHEN a user accesses their documents, THE LegalLens_System SHALL display only documents associated with their account
 5. WHEN managing user sessions, THE LegalLens_System SHALL implement appropriate timeout and security measures
 
-### Requirement 10: Responsive Web Interface
+### Requirement 9: Responsive Web Interface
 
 **User Story:** As a user accessing the system from various devices, I want a responsive interface that works well on mobile phones, tablets, and computers, so that I can use the system conveniently from any device.
 

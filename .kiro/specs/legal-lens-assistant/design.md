@@ -14,7 +14,6 @@ The platform addresses the critical gap in legal literacy by transforming comple
 graph TB
     subgraph "Frontend Layer"
         UI[Responsive Web UI]
-        Voice[Voice Interface]
     end
     
     subgraph "API Gateway Layer"
@@ -34,7 +33,6 @@ graph TB
         Textract[Amazon Textract]
         Translate[Amazon Translate]
         Transcribe[Amazon Transcribe]
-        Polly[Amazon Polly]
         Titan[Amazon Titan Embeddings]
     end
     
@@ -45,7 +43,6 @@ graph TB
     end
     
     UI --> API
-    Voice --> API
     API --> Auth
     API --> Lambda1
     API --> Lambda2
@@ -67,7 +64,6 @@ graph TB
     
     Lambda4 --> Translate
     Lambda4 --> Transcribe
-    Lambda4 --> Polly
 ```
 
 ### Component Architecture
@@ -184,8 +180,6 @@ interface AnswerResponse {
 
 **Key Functions**:
 - `translateText(text, targetLanguage)`: Translates text to regional languages
-- `speechToText(audioData, language)`: Converts speech to text
-- `textToSpeech(text, language)`: Converts text to speech
 - `detectLanguage(text)`: Automatically detects input language
 
 **Interfaces**:
@@ -360,41 +354,33 @@ Based on the prework analysis, I'll now convert the testable acceptance criteria
 *For any* user-selected regional language, the system should translate all interface elements, explanations, and alerts to that language
 **Validates: Requirements 4.1, 4.2, 4.3**
 
-### Property 7: Voice Processing Functionality
-*For any* voice input in supported languages, the system should convert speech to text, and for any text response, convert to speech when voice output is enabled
-**Validates: Requirements 4.5, 8.1, 8.2, 8.3**
-
-### Property 8: Question Answering with Citations
+### Property 7: Question Answering with Citations
 *For any* user question about a document, the system should provide answers with document references and citations, or clearly indicate when questions cannot be answered
 **Validates: Requirements 5.1, 5.2, 5.3, 5.4**
 
-### Property 9: Contextual Ambiguity Handling
+### Property 8: Contextual Ambiguity Handling
 *For any* question with multiple possible interpretations, the system should present the most likely interpretation with appropriate caveats
 **Validates: Requirements 5.5**
 
-### Property 10: Document Type Classification
+### Property 9: Document Type Classification
 *For any* analyzed document, the system should identify the document type or request user clarification when type cannot be determined
 **Validates: Requirements 6.1, 6.5**
 
-### Property 11: Document-Type-Specific Risk Patterns
+### Property 10: Document-Type-Specific Risk Patterns
 *For any* document of a specific type, the risk detection should apply patterns appropriate to that document type
 **Validates: Requirements 6.3**
 
-### Property 12: Data Security and Encryption
+### Property 11: Data Security and Encryption
 *For any* user document upload, the system should encrypt the document during transmission and storage
 **Validates: Requirements 7.1**
 
-### Property 13: User Data Isolation
+### Property 12: User Data Isolation
 *For any* user accessing documents, the system should only display documents associated with their account and enforce proper access control
 **Validates: Requirements 7.2, 7.5, 9.4**
 
-### Property 14: Complete Data Deletion
+### Property 13: Complete Data Deletion
 *For any* user deletion request, the system should permanently remove all associated data according to retention policies
 **Validates: Requirements 7.3, 7.4**
-
-### Property 15: Voice Processing Fallback
-*For any* voice processing failure, the system should gracefully fall back to text-based interaction
-**Validates: Requirements 8.5**
 
 ### Property 16: User Authentication and Session Management
 *For any* user registration or login, the system should create secure accounts, authenticate credentials, establish sessions, and require re-authentication for expired sessions
@@ -484,15 +470,13 @@ The system requires both unit testing and property-based testing for comprehensi
    - Property tests for data isolation and access control
    - Penetration tests for security vulnerabilities
 
-4. **Multilingual and Voice Tests**
+4. **Multilingual Tests**
    - Unit tests for specific language translations
    - Property tests for comprehensive translation support
-   - Voice processing tests with various audio qualities
 
 5. **Performance and Scalability Tests**
    - Load tests for concurrent document processing
    - Stress tests for large document handling
-   - Latency tests for real-time voice processing
 
 ### Integration Testing Strategy
 
